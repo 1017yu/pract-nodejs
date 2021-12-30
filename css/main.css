@@ -1,0 +1,5 @@
+/* @import url("box.css"); 직렬방식 (비선호) */ 
+
+div {
+  font-size: 100px;
+}
