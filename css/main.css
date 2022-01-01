@@ -9,7 +9,22 @@ div {
   height: 100px;
   background-color: royalblue;
   transition: 0.5s;
+  font-size: 20px;
 }
+
+.jax::before {   /*  선택자 요소의 내부 앞에 내용(inline)을 삽입 */
+  content: "wow ";
+  font-size: 30px;
+}
+
+
+.jax::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-color: lightsalmon;
+} 
 
 .teemo {
   width: 100px;
@@ -26,7 +41,7 @@ div {
 .jax:hover { /* 선택자 요소에 마우스 커서가 올라가 있는 동안 선택 */
   width: 200px;
   height: 200px;
-  background-color: black;
+  background-color:lightpink;
 }
  
 .teemo:active {   /* 선택자 요소에 마우스를 클릭하고 있는 동안 선택 */
@@ -35,4 +50,27 @@ div {
 
 .zed:focus {
   background-color: lightgrey;
+}
+
+[type="password"] {
+  background-color: lemonchiffon;
+}
+
+[data-password-name] { /* data속성도 전역속성 */
+  color: red;
+}
+
+.parent {
+  width: 300px;
+  height: 200px;
+  background-color: red;
+}
+
+.child {
+  width: 100px;
+  height: inherit;
+  background-color: black;
+  position: fixed;
+  top: 100px;
+  right: 10px;
 }
