@@ -8,7 +8,7 @@ div {
   width: 100px;
   height: 100px;
   background-color: royalblue;
-  transition: 0.5s;
+  transition: 0.5s .5s; /* 지속시간, 대기시간 */
   font-size: 20px;
 }
 
@@ -74,4 +74,25 @@ div {
   position: fixed;
   top: 100px;
   right: 10px;
+}
+
+.container {
+  width: 100px;
+  height: 100px;
+  background-color: royalblue;
+  margin-left: 30px;
+  perspective: 250px; /* 원근법 지정(부모 요소) */
+}
+
+.item {
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+  transform: rotateY(180deg);
+  backface-visibility: hidden; /* 뒷면을 숨기기 */
+
+  /* 가운데 정렬 */
+  display: flex;
+  justify-content: center; 
+  align-items: center;
 }
