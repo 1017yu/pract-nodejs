@@ -18,3 +18,23 @@ let world = function () {
 
 hello(); // Hello~
 world(); // World!
+
+let boxEl = document.querySelector('.box');
+
+boxEl.addEventListener('click', function () {
+  alert();
+  boxEl.classList.add('active');
+  console.log(boxEl.classList.contains('active'));
+  boxEl.classList.remove('active');
+  console.log(boxEl.classList.contains('active'));
+})
+const boxEls = document.querySelectorAll('.box');
+
+boxEls.forEach(function (boxEl, index) {
+  boxEl.classList.add(`order-${index + 1}`);
+  console.log(index, boxEl);
+})
+
+const boxEl2 = document.querySelector('.box');
+boxEl2.textContent = 'Hero';
+console.log(boxEl2.textContent);
