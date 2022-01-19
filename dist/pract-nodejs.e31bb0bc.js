@@ -19370,16 +19370,132 @@ var define;
   }
 }.call(this));
 
-},{"buffer":"../../.nvm/versions/node/v16.13.1/lib/node_modules/parcel-bundler/node_modules/buffer/index.js"}],"index.js":[function(require,module,exports) {
+},{"buffer":"../../.nvm/versions/node/v16.13.1/lib/node_modules/parcel-bundler/node_modules/buffer/index.js"}],"getType.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = getType;
+
+function getType(data) {
+  return Object.prototype.toString.call(data).slice(8, -1);
+}
+},{}],"getRandom.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = random;
+
+function random() {
+  return Math.floor(Math.random() * 10);
+}
+},{}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _lodash = _interopRequireDefault(require("lodash"));
 
+var _getType = _interopRequireDefault(require("./getType"));
+
+var _getRandom = _interopRequireDefault(require("./getRandom"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-console.log('Hello World!');
-console.log(_lodash.default.camelCase('hello world'));
-},{"lodash":"node_modules/lodash/lodash.js"}],"../../.nvm/versions/node/v16.13.1/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+// '_' 라는 변수에 할당해서 활용
+// console.log('Hello World!')
+// console.log(_.camelCase('hello world!')) // lodash module의 camelCase method 실행
+
+/* function getType(data) {
+  return Object.prototype.toString.call(data).slice(8, -1)
+} */
+// console.log(getType(123)) Number
+// console.log(getType(false)) Boolean
+// console.log(getType(null)) Null
+// console.log(getType({})) Object
+// console.log(getType([])) Array
+var hero = {
+  name: 'KLED',
+  age: 25,
+  getName: function getName() {
+    return this.name;
+  }
+};
+var hisName = hero.getName();
+console.log(hisName); // or
+
+console.log(hero.getName()); // 조건문 
+
+var a = (0, _getRandom.default)();
+
+if (a === 0) {
+  console.log('a is 0');
+} else if (a === 2 || a === 3) {
+  console.log('a == 2 or 3');
+} else {
+  console.log('rest...');
+}
+
+switch (a) {
+  case 0:
+    console.log('a is 0');
+    break;
+
+  case 2:
+    console.log('a is 2');
+    break;
+
+  case 4:
+    console.log('a is 4');
+    break;
+
+  default:
+    console.log('rest...');
+} // 반복문 (For statement)
+// for (시작조건; 종료조건; 변화조건) {}
+
+
+var ulEl = document.querySelector('ul');
+
+var _loop = function _loop(i) {
+  var li = document.createElement('li');
+  li.textContent = "list-".concat(i + 1);
+  li.addEventListener('click', function () {
+    console.log(li.textContent);
+  });
+  ulEl.appendChild(li);
+};
+
+for (var i = 0; i < 10; i += 1) {
+  _loop(i);
+} // 화살표 함수
+// () => {}
+
+
+var double = function double(x) {
+  return x * 2;
+};
+
+console.log('seven double:', double(7)); // 즉시실행 함수 (Immediately-Invoked Function Expression)
+
+var c = 2;
+
+(function () {
+  console.log(c * 2);
+})(); // 호이스팅(Hoisting)
+// 함수 선언부가 유효범위 최상단으로 끌어올려지는 현상
+
+
+tripple(c); // error!
+// const tripple = function() {
+//   console.log(c * 3)
+// }
+
+function tripple() {
+  console.log(c * 3);
+}
+},{"lodash":"node_modules/lodash/lodash.js","./getType":"getType.js","./getRandom":"getRandom.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -19407,7 +19523,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63606" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65019" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -19583,5 +19699,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../.nvm/versions/node/v16.13.1/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
 //# sourceMappingURL=/pract-nodejs.e31bb0bc.js.map
