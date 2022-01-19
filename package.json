@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "parcel index.html",
     "build": "parcel build index.html"
   },
@@ -23,5 +22,9 @@
   },
   "dependencies": {
     "lodash": "^4.17.21"
+  },
+  "keywords": [],
+  "directories": {
+    "test": "test"
   }
 }
