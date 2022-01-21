@@ -93,3 +93,73 @@ tripple(c)
 function tripple() {
   console.log(c * 3)
 }
+
+
+// 생성자 함수 (prototype)
+// new와 함께 생성되는 생성자 함수는 Pascal Case로 표기
+
+function User(first, last) {
+  this.firstName = first
+  this.lastName = last
+}
+User.prototype.getFullName = function () {
+  return `${this.firstName} ${this.lastName}`
+}
+
+
+const kled = new User('kled', 'Yu')
+
+console.log(kled.getFullName())
+
+
+// ES6 Classes (prototype 보다 더 선호)
+
+class User2 {
+  constructor(first, last) {
+    this.firstName = first
+    this.lastName = last
+  }
+  getFullName2() {
+    return `${this.firstName} ${this.lastName}`
+  }
+}
+
+const kledname = new User2('kled', 'Yu')
+
+console.log(kledname.getFullName2())
+
+class Vehicle {
+  constructor(name, wheel) {
+    this.name = name
+    this.wheel = wheel
+  }
+}
+
+const myVehicle = new Vehicle('운송수단', 2)
+console.log(myVehicle)
+
+// extends (확장 || 상속)
+class Bicycle extends Vehicle {
+  constructor(name, wheel) {
+    super(name, wheel)
+  }
+}
+
+const myBicycle = new Bicycle('삼천리', 2)
+const daughersBicycle = new Bicycle('세발', 3)
+
+console.log(myBicycle)
+console.log(daughersBicycle)
+
+class Car extends Vehicle {
+  constructor(name, wheel, license) {
+    super(name, wheel)
+    this.license = license
+  }
+}
+
+const myCar = new Car('제네시스', 4, true)
+const daughtersCar = new Car('포르쉐', 4, true)
+
+console.log(myCar)
+console.log(daughtersCar)
