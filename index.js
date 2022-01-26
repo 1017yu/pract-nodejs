@@ -1,6 +1,7 @@
 import _ from 'lodash'; // '_' 라는 변수에 할당해서 활용
 import random from './getRandom'
 import getType, { frontEnd as fe } from './getType'
+import axios from 'axios'
 
 // console.log('Hello World!')
 // console.log(_.camelCase('hello world!')) // lodash module의 camelCase method 실행
@@ -163,3 +164,18 @@ const daughtersCar = new Car('포르쉐', 4, true)
 
 console.log(myCar)
 console.log(daughtersCar)
+
+
+ function fetchmovies() {
+   axios
+   .get('https://www.omdbapi.com/?apikey=7035c60c&s=frozen')
+   .then((res) => {
+     console.log(res)
+     const h1El = document.querySelector('h1')
+     const imgEl = document.querySelector('img')
+     h1El.textContent = res.data.Search[0].Title
+     imgEl.src = res.data.Search[0].Poster
+   })
+ }
+
+ fetchmovies()
